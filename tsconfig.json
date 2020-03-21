@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "es6",
+    "jsx": "react",
+    "lib": [
+      "es6",
+      "es2015",
+      "es2015.promise",
+      "dom"
+    ],
+    "baseUrl": "./src",
+    "paths": {
+      "components/*": ["client/components/*"],
+      "services/*": ["client/services/*"],
+      "utils/*": ["client/utils/*"]
+    }
+  },
+  "include": [
+    "./src/**/*"
+  ]
+}

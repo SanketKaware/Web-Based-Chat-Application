@@ -1,0 +1,116 @@
+.container {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 48px;
+  grid-row-gap: .5rem;
+}
+
+.messages {
+  display: flex;
+  align-items: flex-end;
+  padding: .5rem 0;
+
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #f0f0f0;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #a0a0a0;
+    border-radius: 3px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #707070;
+  }
+  
+  &__list {
+    width: 100%;
+    max-height: 100%;
+  }
+
+  &__item {
+    margin-bottom: .5rem;
+    padding: 0 .5rem;
+    min-height: 32px;
+    display: grid;
+    grid-template-areas: "avatar message";
+    grid-template-columns: 32px auto;
+    grid-column-gap: .5rem;
+    font-size: .875em;
+
+    div:nth-of-type(2) {
+      justify-self: baseline;
+    }
+
+    &_right {
+      grid-template-areas: "message avatar";
+      grid-template-columns: auto 32px;
+
+      div:nth-of-type(2) {
+        justify-self: end;
+        background: #9933ff;
+        color: #fff;
+      }
+    }
+  }
+
+  &__avatar {
+    grid-area: avatar;
+    img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+  }
+
+  &__message {
+    grid-area: message;
+    max-width: 80%;
+    background: #fafafa;
+    border-radius: 5px;
+    padding: .5rem;
+    border: 1px solid rgba(0, 0, 0, .125);
+    word-wrap: break-word;
+    overflow-wrap: break-all;
+  }
+}
+
+.editor {
+  background: #fafafa;
+  display: grid;
+  grid-template-columns: auto 48px;
+  grid-column-gap: .5rem;
+
+  &__input,
+  &__button {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font-size: 1em;
+    height: 100%;
+    padding: .5rem;
+  }
+
+  &__input {
+    resize: none;
+    overflow-y: auto;
+
+    &::placeholder {
+      color: #959595;
+    }
+  }
+
+  &__button {
+    padding: 0;
+    font-size: 1.7em;
+    color: #959595;
+    transition: color linear .2s;
+
+    &:hover {
+      cursor: pointer;
+      color: #555555;
+    }
+  }
+}
